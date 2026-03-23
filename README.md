@@ -17,67 +17,33 @@ Link ditaruh di bawah ini
 
 ### 1. Pendahuluan
 
-Pada tugas ini, dibuat sebuah aplikasi berbasis terminal menggunakan bahasa Python dengan konsep client-server. Aplikasi ini memungkinkan beberapa client terhubung ke server dan saling berkomunikasi (chat) serta melakukan transfer file seperti upload dan download,
+Pada tugas ini dibuat sebuah aplikasi berbasis terminal menggunakan Python dengan konsep client-server. Aplikasi ini memungkinkan beberapa client untuk terhubung ke server dan saling berkomunikasi (chat), serta melakukan transfer file seperti upload dan download.
 
-Program ini mengimplementasikan beberapa metode, yaitu:
-- Synchronous
-- Select
-- Poll
-- Threading
+Dalam program ini digunakan beberapa metode untuk menangani banyak client, yaitu synchronous, select, poll, dan threading. Tujuannya adalah untuk memahami perbedaan cara kerja masing-masing metode tersebut.
 
 ### 2. Arsitektur Program
 
-Program ini terdiri dari :
-- 1 file client : `client.py`
-- 4 file server : `server-sync.py`, `server-select.py`, `server-poll.py`, dan `server-thread.py`
+Program ini terdiri dari 1 file client (`client.py`) dan 4 file server (`server-sync.py`, `server-select.py`, `server-poll.py`, dan `server-thread.py`).
 
-Komunikasi dilakukan menggunakan TCP socket dengan alamat `127.0.0.1` dan port `5000`.
+Komunikasi dilakukan menggunakan TCP socket dengan alamat `127.0.0.1` dan port `5000`. Setiap server dijalankan secara terpisah karena menggunakan port yang sama.
 
 ### 3. Penjelasan Client (`client.py`)
 
-Client berfungsi sebagai penghubung antara user dengan server.
+Client digunakan untuk menghubungkan user dengan server.
 
-a. Koneksi ke server
-```
-client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-client.connect((HOST, PORT))
-```
-Client membuat socket TCP dan melakukan koneksi ke server.
-
-b. Thread untuk menerima pesan
-```
-threading.Thread(target=receive, daemon=True).start()
-```
-Digunakan thread agar client bisa menerima pesan dari server dan tetap bisa input dari user secara bersamaan.
-
-c. Fitur yang tersedia
-
-1. Chat biasa (broadcast)
-```
-client.send(msg.encode())
-```
-Pesan dikirim ke server lalu disebarkan ke client lain.
-
-2. Upload file
-```
-if msg.startswith("/upload"):
-```
-Client membaca file dari lokal, mengirim isi file ke server, menggunakan "EOF" sebagai akhir file.
-
-3. Download file
-```
-elif msg.startswith("/download"):
-```
-CLient menerima data file dari server dan disimpan dengan nama `download_<filename>`.
+- Client melakukan koneksi ke server menggunakan socket TCP,
+- Digunakan threading agar client bisa menerima pesan sekaligus mengirim input dari user,
+- Client memiliki beberapa fitur, yaitu:
+  - Chat (broadcast ke client lain),
+  - Upload file ke server menggunakan perintah `/upload`,
+  - Download file dari server menggunakan perintah `/download`.
 
 ### 4. Penjelasan Server
 
 #### 4.1. Server Thread (`server-thread.py`)
 
-Server ini menggunakan threading, dimana setiap client ditangani oleh thread terpisah.
-```
-threading.Thread(target=handle_client, args=(conn, addr)).start()
-```
+Server ini menggunakan threading, dimana setiap client ditangani oleh thread terpisah sehingga server bisa melayani banyak client secara bersamaan.
+
 Fitur :
 
 - Broadcast pesan ke semua client
@@ -85,34 +51,19 @@ Fitur :
 - `/upload` untuk menerima file dari client
 - `/download` untuk mengirim file ke client
 
-Kelebihan : Bisa melayani banyak client secara paralel
-
-Kekurangan : Menggunakan banyak resource jika client banyak
-
 #### 4.2 Server Sync (server-sync.py)
 
-Server ini bersifat synchronous, hanya melayani satu client dalam satu waktu.
-
-Cara kerja : Server menerima satu koneksi, melayani sampai selesai, baru kemudian menerima client berikutnya.
+Server ini bersifat synchronous, hanya melayani satu client dalam satu waktu. Client lain harus menunggu sampai client sebelumnya selesai.
 
 Fitur :
 
 - `/list`
 - `/upload`
 - `/download`
- 
-Kelebihan : Sederhana dan mudah dipahami
-
-Kekurangan : Tidak bisa multi-client secara bersamaan
 
 #### 4.3 Server Select (server-select.py)
 
-Server ini menggunakan fungsi `select()` untuk menangani banyak client tanpa thread.
-```
-read_ready, _, _ = select.select(sockets, [], [])
-```
-
-Cara kerja : Memantau banyak socket sekaligus, menentukan socket mana yang siap dibaca.
+Server ini menggunakan fungsi `select()` untuk menangani banyak client tanpa thread. Server akan memantau socket yang aktif dan memproses yang siap digunakan.
 
 Fitur :
 - Broadcast
@@ -120,34 +71,18 @@ Fitur :
 - `/upload`
 - `/download`
 
-Kelebihan : Lebih efisien dibanding threading untuk jumlah client sedang
-
 #### 4.4 Server Poll (`server-poll.py`)
 
-Server ini menggunakan `select.poll()` yang merupakan pengembangan dari select.
-```
-events = poll.poll()
-```
-Cara kerja : Menggunakan file descriptor
+Server ini menggunakan `select.poll()` yang merupakan pengembangan dari select. Lebih efisien untuk jumlah client yang banyak.
 
 Fitur :
 
 - Broadcast
 - `/list`
 
-Kelebihan : Lebih efisien untuk banyak koneksi
-
-Kekurangan : Implementasi lebih kompleks dan fitur file transfer belum selengkap server lain
-
 ### 5. Mekanisme Transfer File
 
-Transfer file dilakukan dengan cara data dikirim dalam bentuk byte dan menggunakan penanda "EOF" sebagai akhir file
-
-Contoh :
-```
-client.send(b"EOF")
-```
-Server membaca sampai menemukan "EOF".
+Transfer file dilakukan dengan cara data dikirim dalam bentuk byte dan menggunakan penanda "EOF" sebagai akhir file. 
 
 ### 6. Pengujian Program
 
@@ -157,7 +92,7 @@ Pengujian dilakukan dengan langkah berikut :
 2. Menjalankan beberapa client
 3. Menguji :
    - Chat antar client (broadcast)
-   - Perintah /list
+   - Perintah `/list`
    - Upload file ke server
    - Download file dari server
 
@@ -171,10 +106,9 @@ Hasil menunjukkan bahwa :
 
 Berdasarkan hasil implementasi, dapat disimpulkan bahwa :
 
-- Socket programming memungkinkan komunikasi client-server secara real-time,
-- Metode concurrency mempengaruhi performa server,
-- Threading paling mudah digunakan untuk multi-client,
-- Select dan poll lebih efisien namun lebih kompleks.
+- Socket memungkinkan komunikasi secara real-time antara client dan server,
+- Metode concurrency mempengaruhi cara server menangani banyak client,
+- Threading paling mudah digunakan, sedangkan select dan poll lebih efisien.
 
 ## Screenshot Hasil
 
