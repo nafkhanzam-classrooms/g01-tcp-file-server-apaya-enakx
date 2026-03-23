@@ -21,7 +21,7 @@ Link ditaruh di bawah ini
 1. Server Running  
 Menjalankan server dengan `python3 server-thread.py`  
 
-<img width="355" height="129" alt="Server Running" src="https://github.com/user-attachments/assets/2ce53eb6-865c-4a5d-ae54-2a25af145a0f" />
+<img width="355" height="129" alt="Server Running" src="https://github.com/user-attachments/assets/2ce53eb6-865c-4a5d-ae54-2a25af145a0f" /> 
 
 2. Broadcast Chat  
 Client A mengirim pesan  
