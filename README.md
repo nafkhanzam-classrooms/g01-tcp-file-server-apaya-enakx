@@ -3,8 +3,8 @@
 
 ## Anggota Kelompok
 | Nama           | NRP        | Kelas     |
-| ---            | ---        | ----------|
-|                |            |           |
+| Shifa Alya Dewi        | 5025241176        | D|
+| Dyah Utami Kesuma Dewi           | 5025241186        |  D    |
 |                |            |           |
 
 ## Link Youtube (Unlisted)
