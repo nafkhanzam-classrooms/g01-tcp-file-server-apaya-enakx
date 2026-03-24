@@ -112,7 +112,37 @@ Berdasarkan hasil implementasi, dapat disimpulkan bahwa :
 
 ## Screenshot Hasil
 
-### 1. Server Running
+### Server-sync
+#### 1. Server Running
+
+Menjalankan server dengan `python3 server-sync.py`.
+
+<img width="319" height="116" alt="image" src="https://github.com/user-attachments/assets/c950fa3b-e5a4-4264-aafd-f11acedbca2c" />
+
+### 2. Broadcast Chat  
+
+<img width="302" height="93" alt="image" src="https://github.com/user-attachments/assets/33775af8-15cb-4a60-94eb-70de59fcfd1f" />
+
+### 3. Upload File
+
+Client upload file `coba.txt` ke server.
+
+<img width="271" height="63" alt="image" src="https://github.com/user-attachments/assets/7f02a84f-9cc9-4ae7-9221-28fac932b9cb" />
+
+### 4. Download File  
+
+Client download file `coba.txt` dari server.
+<img width="288" height="42" alt="image" src="https://github.com/user-attachments/assets/cf6be240-f120-4bc6-893e-2676ea159a96" />
+
+
+### 5. List File  
+
+Client menjalankan perintah `/list` untuk melihat daftar file di server.
+
+<img width="276" height="146" alt="image" src="https://github.com/user-attachments/assets/88692ee9-b489-4ba6-b6c1-6426fc6d7142" />
+
+### Server-thread
+#### 1. Server Running
 
 Menjalankan server dengan `python3 server-thread.py`.
 
@@ -149,3 +179,6 @@ Client B download file `test.txt` dari server.
 Client menjalankan perintah `/list` untuk melihat daftar file di server.
 
 <img width="226" height="79" alt="List File di Server" src="https://github.com/user-attachments/assets/9c7acd03-4f8e-43e3-935b-182d21ee9efe" />
+
+
+
