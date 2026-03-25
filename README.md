@@ -190,36 +190,40 @@ Menjalankan server dengan `python3 server-select.py` atau `py server-select.py`.
 
 <img width="402" height="142" alt="image" src="https://github.com/user-attachments/assets/44720954-3125-4e2b-90b8-76f36e413404" />
 
+<img width="326" height="49" alt="image" src="https://github.com/user-attachments/assets/e325810a-488f-406a-b684-17bbcb17a6f6" />
+
 #### b. Broadcast Chat  
 
 Client A mengirim pesan.
 
 <img width="399" height="103" alt="image" src="https://github.com/user-attachments/assets/ed9203b6-aa1c-4981-9557-92b75f30c016" />
 
+<img width="323" height="54" alt="image" src="https://github.com/user-attachments/assets/56a24f1a-c844-4e75-b68c-041e76b8fd70" />
+
 Client B otomatis menerima pesan.
 
 <img width="402" height="122" alt="image" src="https://github.com/user-attachments/assets/724815c6-09ff-49af-a793-cba6f53a8c4e" />
 
+<img width="319" height="65" alt="image" src="https://github.com/user-attachments/assets/cd520165-fcc4-4b1e-95b0-d55cb6ec6b7e" />
+
 #### c. Upload File
 
-Client A upload file `test.txt` ke server.
+Client A upload file `cblagit.txt` ke server.
 
-
-
-File berhasil tersimpan di folder server :
-
-
+<img width="220" height="16" alt="image" src="https://github.com/user-attachments/assets/eaff91b3-9962-4818-bdb4-77f04ad66003" />
 
 #### d. Download File  
 
-Client B download file `test.txt` dari server.
+Client B download file `cblagi.txt` dari server.
 
+<img width="259" height="25" alt="image" src="https://github.com/user-attachments/assets/0d19f9ff-9f0c-4a74-b991-fabae74f22b1" />
 
 
 #### e. List File  
 
 Client menjalankan perintah `/list` untuk melihat daftar file di server.
 
+<img width="211" height="143" alt="image" src="https://github.com/user-attachments/assets/efd14b0d-f9bc-4215-be92-9b1479995117" />
 
 
 ### 4. Server-poll
@@ -228,35 +232,36 @@ Client menjalankan perintah `/list` untuk melihat daftar file di server.
 
 Menjalankan server dengan `python3 server-poll.py` atau `py server-poll.py`.
 
-
+<img width="348" height="70" alt="image" src="https://github.com/user-attachments/assets/c1ec3057-84e9-464e-ad21-d752682042dd" />
 
 #### b. Broadcast Chat  
 
 Client A mengirim pesan.
 
-
+<img width="363" height="29" alt="image" src="https://github.com/user-attachments/assets/33a6b47c-e676-4830-821e-4a416acf41c0" />
 
 Client B otomatis menerima pesan.
 
-
+<img width="264" height="40" alt="image" src="https://github.com/user-attachments/assets/613e76ec-0a6d-43ac-a709-7e850c901b1c" />
 
 #### c. Upload File
 
-Client A upload file `test.txt` ke server.
+Client A upload file `testlg.txt` ke server.
 
-
+<img width="183" height="31" alt="image" src="https://github.com/user-attachments/assets/ed261a4b-18e6-4bea-b098-c9ca84b43144" />
 
 File berhasil tersimpan di folder server :
 
-
+<img width="259" height="45" alt="image" src="https://github.com/user-attachments/assets/c6c7bf79-a3d9-496e-bf5c-e6b81222e9f7" />
 
 #### d. Download File  
 
-Client B download file `test.txt` dari server.
+Client B download file `testlg.txt` dari server.
 
-
+<img width="206" height="31" alt="image" src="https://github.com/user-attachments/assets/07f029a3-356d-4041-ad42-6ec9d2923fb0" />
 
 #### e. List File  
 
 Client menjalankan perintah `/list` untuk melihat daftar file di server.
 
+<img width="183" height="154" alt="image" src="https://github.com/user-attachments/assets/68508385-c75c-4f6f-8a65-654496d5faf1" />
